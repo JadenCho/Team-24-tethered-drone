@@ -16,8 +16,8 @@ ExtPlane.on('loaded', function(){
 
 	// Subscribe to the airspeed
 	ExtPlane.client.subscribe('sim/flightmodel/forces/fnrml_aero');
-    	ExtPlane.client.subscribe('sim/flightmodel/forces/faxil_aero');
-    	ExtPlane.client.subscribe('sim/flightmodel/forces/fnrml_prop');
+    ExtPlane.client.subscribe('sim/flightmodel/forces/faxil_aero');
+    ExtPlane.client.subscribe('sim/flightmodel/forces/fnrml_prop');
    	ExtPlane.client.subscribe('sim/flightmodel/misc/cl_overall');
    	ExtPlane.client.subscribe('sim/flightmodel/misc/cd_overall');
   	ExtPlane.client.subscribe('sim/flightmodel/position/local_x');
@@ -37,10 +37,11 @@ ExtPlane.on('loaded', function(){
 		//EXAMPLE FUNCTION: if the speed is over 200kts turn on night vision
 		//if(data_ref == 'sim/cockpit2/gauges/indicators/airspeed_kts_pilot' && value > 200)
 		//	this.client.set('sim/cockpit/electrical/night_vision_on', 1);
+        console.log("Hello world\n")
 		
 		if (data_ref == 'sim/flightmodel/forces/fnrml_aero')		data[0] = value;
-    		if (data_ref == 'sim/flightmodel/forces/faxil_aero')		data[1] = value;
-    		if (data_ref == 'sim/flightmodel/forces/fnrml_prop')		data[2] = value;
+    	if (data_ref == 'sim/flightmodel/forces/faxil_aero')		data[1] = value;
+    	if (data_ref == 'sim/flightmodel/forces/fnrml_prop')		data[2] = value;
    		if (data_ref == 'sim/flightmodel/misc/cl_overall')		data[3] = value;
    		if (data_ref == 'sim/flightmodel/misc/cd_overall')		data[4] = value;
   		if (data_ref == 'sim/flightmodel/position/local_x')		data[5] = value;
@@ -57,22 +58,22 @@ ExtPlane.on('loaded', function(){
   		
 
 		fs.writeFile('nodeOutput.txt', 
-		"sim/flightmodel/forces/fnrml_aero, "		+ data[0] = value + "\n" +
-    		"sim/flightmodel/forces/faxil_aero, "		+ data[1] = value + "\n" +
-    		"sim/flightmodel/forces/fnrml_prop, "		+ data[2] = value + "\n" +
-   		"sim/flightmodel/misc/cl_overall, "		+ data[3] = value + "\n" +
-   		"sim/flightmodel/misc/cd_overall, "		+ data[4] = value + "\n" +
-  		"sim/flightmodel/position/local_x, "		+ data[5] = value + "\n" +
-  		"sim/flightmodel/position/local_y, "		+ data[6] = value + "\n" +
-  		"sim/flightmodel/position/local_z, "		+ data[7] = value + "\n" +
-  		"sim/flightmodel/position/true_phi, "		+ data[8] = value + "\n" +
-  		"sim/flightmodel/position/true_psi, "		+ data[9] = value + "\n" +
-  		"sim/flightmodel/position/local_vx, "		+ data[10] = value + "\n" +
-  		"sim/flightmodel/position/local_vy, "		+ data[11] = value + "\n" +
-  		"sim/flightmodel/position/local_vz, "		+ data[12] = value + "\n" +
-  		"sim/flightmodel/position/alpha, "		+ data[13] = value + "\n" +
-  		"sim/flightmodel/position/groundspeed, "	+ data[14] = value + "\n" +
-  		"sim/flightmodel/position/true_airspeed, "	+ data[15] = value + "\n"
+		"sim/flightmodel/forces/fnrml_aero, "		+ data[0]  + "\n" +
+    	"sim/flightmodel/forces/faxil_aero, "		+ data[1]  + "\n" +
+    	"sim/flightmodel/forces/fnrml_prop, "		+ data[2]  + "\n" +
+   		"sim/flightmodel/misc/cl_overall, "		+ data[3]  + "\n" +
+   		"sim/flightmodel/misc/cd_overall, "		+ data[4]  + "\n" +
+  		"sim/flightmodel/position/local_x, "		+ data[5]  + "\n" +
+  		"sim/flightmodel/position/local_y, "		+ data[6] + "\n" +
+  		"sim/flightmodel/position/local_z, "		+ data[7]  + "\n" +
+  		"sim/flightmodel/position/true_phi, "		+ data[8]  + "\n" +
+  		"sim/flightmodel/position/true_psi, "		+ data[9]  + "\n" +
+  		"sim/flightmodel/position/local_vx, "		+ data[10]  + "\n" +
+  		"sim/flightmodel/position/local_vy, "		+ data[11]  + "\n" +
+  		"sim/flightmodel/position/local_vz, "		+ data[12]  + "\n" +
+  		"sim/flightmodel/position/alpha, "		+ data[13] + "\n" +
+  		"sim/flightmodel/position/groundspeed, "	+ data[14] + "\n" +
+  		"sim/flightmodel/position/true_airspeed, "	+ data[15] + "\n"
 		, function (err) {
   			if (err) return console.log(err);
   				console.log('file complete\n');
