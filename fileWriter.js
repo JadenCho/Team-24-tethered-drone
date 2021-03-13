@@ -37,7 +37,7 @@ ExtPlane.on('loaded', function(){
 		//EXAMPLE FUNCTION: if the speed is over 200kts turn on night vision
 		//if(data_ref == 'sim/cockpit2/gauges/indicators/airspeed_kts_pilot' && value > 200)
 		//	this.client.set('sim/cockpit/electrical/night_vision_on', 1);
-        console.log("Hello world\n")
+        
 		
 		if (data_ref == 'sim/flightmodel/forces/fnrml_aero')		data[0] = value;
     	if (data_ref == 'sim/flightmodel/forces/faxil_aero')		data[1] = value;

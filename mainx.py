@@ -1,5 +1,7 @@
 from calculate import *
 from plot import *
+#use this file to run justplots.py, plot.py, and calculate.py
+
 def main(x_vec, y_vec,line1, F, V):
 
 	xlist = calc(F, V)

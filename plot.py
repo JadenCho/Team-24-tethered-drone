@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+#this file creates the plot of power generation vs time
 
 # use ggplot style for more sophisticated visuals
 plt.style.use('ggplot')
@@ -13,8 +14,9 @@ def live_plotter(x_vec,y1_data,line1,identifier='',pause_time=0.65):
         # create a variable for the line so we can later update it
         line1, = ax.plot(x_vec,y1_data,'-o',alpha=0.8)        
         #update plot label/title
-        plt.ylabel('PLace Holder')
-        plt.title('Title: Place Holder'.format(identifier))
+        plt.ylabel('Power Generation')
+        plt.xlabel('time')
+        plt.title('Power Generation vs Time'.format(identifier))
         plt.show()
     
     # after the figure, axis, and line are created, we only need to update the y-data
